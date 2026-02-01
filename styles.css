@@ -50,6 +50,7 @@
     .countdown-timer {
         right: 1rem;
         bottom: 4.5rem;
+        z-index: -1;
     }
 }
 
@@ -100,6 +101,7 @@
         bottom: calc(4.2rem + env(safe-area-inset-bottom, 0));
         right: 0.6rem;
         padding: 0.8rem;
+        z-index: -1;
     }
 
     .countdown-item span:first-child {
@@ -891,19 +893,19 @@ p {
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .scene-card {
@@ -942,6 +944,7 @@ p {
         bottom: 6rem;
         right: 1rem;
         padding: 1rem;
+        z-index: -1;
     }
 
     .countdown-item span:first-child {
@@ -979,11 +982,15 @@ p {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
     }
 
     .scene-card {
