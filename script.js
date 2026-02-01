@@ -1,6 +1,6 @@
 // ===== State Management =====
 let currentScene = 1;
-const totalScenes = 12;
+const totalScenes = 13;
 let isTransitioning = false;
 
 // Touch handling for swipe gestures
@@ -80,8 +80,7 @@ function handleClick(e) {
         e.target.closest('.progress-dot') ||
         e.target.closest('.phone-link') ||
         e.target.closest('.gallery-item') ||
-        e.target.closest('.lightbox') ||
-        e.target.closest('.countdown-timer')
+        e.target.closest('.lightbox')
     ) {
         return;
     }

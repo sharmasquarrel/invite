@@ -46,12 +46,6 @@
         justify-content: center;
         gap: 0.8rem;
     }
-
-    .countdown-timer {
-        right: 1rem;
-        bottom: 4.5rem;
-        z-index: -1;
-    }
 }
 
 /* Small phones */
@@ -95,13 +89,6 @@
     .progress-dot {
         width: 10px;
         height: 10px;
-    }
-
-    .countdown-timer {
-        bottom: calc(4.2rem + env(safe-area-inset-bottom, 0));
-        right: 0.6rem;
-        padding: 0.8rem;
-        z-index: -1;
     }
 
     .countdown-item span:first-child {
@@ -809,18 +796,6 @@ p {
     box-shadow: 0 0 10px var(--gold);
 }
 
-/* ===== Countdown Timer ===== */
-.countdown-timer {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: rgba(75, 0, 130, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    z-index: 1000;
-}
 
 .countdown-title {
     font-family: 'Cinzel', serif;
@@ -833,6 +808,7 @@ p {
 .countdown-display {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .countdown-item {
@@ -938,13 +914,6 @@ p {
         display: block;
         width: 100%;
         margin: 1rem 0;
-    }
-
-    .countdown-timer {
-        bottom: 6rem;
-        right: 1rem;
-        padding: 1rem;
-        z-index: -1;
     }
 
     .countdown-item span:first-child {
