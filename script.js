@@ -37,6 +37,7 @@ function initializeApp() {
     setupNavigation();
     setupGallery();
     setupCountdown();
+    setupEventItems();
     startFloatingFlowers();
     
     // Update progress indicator
@@ -227,6 +228,25 @@ function startFloatingFlowers() {
     
     // Continue creating flowers
     setInterval(createFloatingFlower, 4000);
+}
+
+// ===== Event Items =====
+function setupEventItems() {
+    const eventItems = document.querySelectorAll('.event-item');
+    
+    eventItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Close other expanded items
+            eventItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('expanded')) {
+                    otherItem.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('expanded');
+        });
+    });
 }
 
 function createFloatingFlower() {

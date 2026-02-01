@@ -448,18 +448,69 @@ p {
 }
 
 /* ===== Scene 4: Events Timeline ===== */
+.scene[data-scene="4"] .scene-card {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* Hide scrollbar while keeping scroll functionality */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scene[data-scene="4"] .scene-card::-webkit-scrollbar {
+    display: none;
+}
+
 .event-item {
     background: rgba(128, 0, 32, 0.3);
     border-radius: 20px;
-    padding: 2rem;
-    margin: 1.5rem 0;
+    padding: 1.5rem;
+    margin: 1rem 0;
     border: 1px solid var(--accent);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    transform: scale(0.5);
+    opacity: 0.7;
 }
 
 .event-item:hover {
-    transform: translateY(-5px);
+    transform: scale(1);
+    opacity: 1;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.event-item.expanded {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    padding: 2rem;
+}
+
+/* Desktop: Horizontal Layout */
+.scene[data-scene="4"] h2 {
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.scene[data-scene="4"] .decorative-line {
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+}
+
+.scene[data-scene="4"] .event-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(33.333% - 1rem);
+    margin: 0 0.5rem;
+    vertical-align: top;
+}
+
+.scene[data-scene="4"] .scene-card > div:not(h2):not(.decorative-line) {
+    display: inline-flex;
 }
 
 .event-icon {
@@ -887,6 +938,13 @@ p {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+
+    /* Mobile: Vertical Layout for Events */
+    .scene[data-scene="4"] .event-item {
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
     }
 
     .countdown-timer {
