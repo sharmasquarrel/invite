@@ -949,3 +949,7 @@ p {
         padding: 1.5rem;
     }
 }
+a{
+    position: relative;
+    z-index: 1000;
+}

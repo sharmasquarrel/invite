@@ -35,7 +35,6 @@ function initializeApp() {
     // Setup event listeners
     setupOpeningOverlay();
     setupNavigation();
-    setupProgressIndicator();
     setupGallery();
     setupCountdown();
     startFloatingFlowers();
@@ -78,7 +77,6 @@ function handleClick(e) {
     // Ignore clicks on interactive elements
     if (
         e.target.closest('.progress-dot') ||
-        e.target.closest('.map-link') ||
         e.target.closest('.phone-link') ||
         e.target.closest('.gallery-item') ||
         e.target.closest('.lightbox') ||
@@ -206,15 +204,6 @@ function changeScene(newScene) {
 
 function restartPresentation() {
     changeScene(1);
-}
-
-// ===== Progress Indicator =====
-function setupProgressIndicator() {
-    progressDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            changeScene(index + 1);
-        });
-    });
 }
 
 function updateProgressIndicator() {
