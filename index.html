@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" title="Toggle Music">
+        <span class="music-icon">🔊</span>
+    </button>
+
     <!-- Opening Overlay -->
     <div id="opening-overlay" class="opening-overlay active">
         <div class="om-symbol">ॐ</div>
@@ -277,7 +282,7 @@
 
     <!-- Background Music -->
     <audio id="background-music" autoplay loop>
-        <source src="./images/song.mp3" type="audio/mpeg">
+        <source id="audio-source" src="" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
