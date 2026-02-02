@@ -20,6 +20,7 @@ const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const backgroundMusic = document.getElementById('background-music');
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +40,7 @@ function initializeApp() {
     setupCountdown();
     setupEventItems();
     startFloatingFlowers();
+    setupBackgroundMusic();
     
     // Update progress indicator
     updateProgressIndicator();
@@ -54,6 +56,42 @@ function closeOpeningOverlay() {
     setTimeout(() => {
         openingOverlay.style.display = 'none';
     }, 1000);
+}
+
+// ===== Background Music =====
+function setupBackgroundMusic() {
+    // Ensure audio element exists
+    if (!backgroundMusic) return;
+    
+    // Set volume to reasonable level (0-1)
+    backgroundMusic.volume = 0.5;
+    
+    // Ensure loop attribute is set
+    backgroundMusic.loop = true;
+    
+    // Attempt to play audio (may require user interaction due to browser policies)
+    const playPromise = backgroundMusic.play();
+    
+    if (playPromise !== undefined) {
+        playPromise
+            .then(() => {
+                console.log('Background music is playing');
+            })
+            .catch((error) => {
+                console.log('Auto-play was prevented:', error);
+                // Add a click listener to play music on first user interaction
+                document.addEventListener('click', playAudioOnFirstInteraction, { once: true });
+                document.addEventListener('touchstart', playAudioOnFirstInteraction, { once: true });
+            });
+    }
+}
+
+function playAudioOnFirstInteraction() {
+    if (backgroundMusic) {
+        backgroundMusic.play().catch(() => {
+            console.log('Could not play audio');
+        });
+    }
 }
 
 // ===== Navigation System =====
