@@ -52,12 +52,21 @@ setTimeout(() => {
   document.addEventListener("touchstart", enableSound);
 }, 2000);
 
+
+function setUpAutoScreenChange(){
+  setInterval(() => {
+    nextScene();
+  }, 20000)
+}
+
+
 function initializeApp() {
   // Show opening overlay
   setTimeout(() => {
     openingOverlay.classList.add("active");
   }, 100);
 
+  setUpAutoScreenChange();
   // Setup event listeners
   setupOpeningOverlay();
   setupNavigation();
@@ -66,7 +75,6 @@ function initializeApp() {
   setupEventItems();
   startFloatingFlowers();
   setupBackgroundMusic();
-
   // Update progress indicator
   updateProgressIndicator();
 }
@@ -193,7 +201,7 @@ function handleClick(e) {
   }
 
   // Navigate to next scene
-  nextScene();
+  // nextScene();
 }
 
 function handleKeyboard(e) {
@@ -211,11 +219,11 @@ function handleKeyboard(e) {
     case "ArrowRight":
     case " ":
       e.preventDefault();
-      nextScene();
+      // nextScene();
       break;
     case "ArrowLeft":
       e.preventDefault();
-      previousScene();
+      // previousScene();
       break;
     case "r":
     case "R":
@@ -260,11 +268,11 @@ function handleSwipe() {
 
   // Swipe left (next scene)
   if (deltaX < -minSwipeDistance) {
-    nextScene();
+    // nextScene();
   }
   // Swipe right (previous scene)
   else if (deltaX > minSwipeDistance) {
-    previousScene();
+    // previousScene();
   }
 }
 
